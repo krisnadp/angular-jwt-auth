@@ -44,4 +44,9 @@ export class AuthService {
     this.isAuthenticatedSubject.next(false);
   }
 
+  getCurrentAuthUser() {
+    let token = localStorage.getItem(this.JWT_TOKEN);
+    return this.http.get('https://dummyjson.com/auth/me');
+  }
+
 }

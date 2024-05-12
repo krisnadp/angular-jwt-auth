@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## This app is using the Dummy Json Response
+Please check the code when it will be used, the code currently using the Dummy Json website response to testing (https://dummyjson.com/)
+
+## File structure is based on Nisar Ahmed medium page
+Here's the medium page to check the file structure (https://medium.com/@mahmednisar/angular-architecture-best-practices-8e5a21e8056).
+the image of the file structure is here (https://miro.medium.com/v2/resize:fit:1400/format:webp/1*I4yan540n_ZMkDPWTo5Wwg.png)

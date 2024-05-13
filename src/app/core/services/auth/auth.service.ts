@@ -18,20 +18,22 @@ export class AuthService {
   constructor() { }
 
   login(user: {
-    username: string, password: string
+    email: string, password: string
   }): Observable<any>{
-    return this.http.post('https://dummyjson.com/auth/login', user).pipe(
+    return this.http.post('https://api.escuelajs.co/api/v1/auth/login', user)
+    .pipe(
       // if using the backend services below code is used the dummy json
-      // tap(tokens => this.doLoginUser(user.username, tokens))
-      tap((response: any) => this.doLoginUser(user.username, response.token))
+      tap((tokens: any) => 
+        this.doLoginUser(user.email, tokens.access_token))
+      // tap((response: any) => this.doLoginUser(user.username, response.token))
     )
   }
 
   // if using the backend services below code is used the dummy json
   // private doLoginUser(username: string, tokens: any) {
-  private doLoginUser(username: string, token: any) {
+  private doLoginUser(email: string, token: any) {
 
-    this.loggedUser = username;
+    this.loggedUser = email;
     // if using the backend services below code is used the dummy json
     // this.storeJwtToken(tokens.jwt);
     this.storeJwtToken(token);
@@ -51,11 +53,15 @@ export class AuthService {
     let token = localStorage.getItem(this.JWT_TOKEN);
     
     // get decoded value from token
-    const decodedToken = new JwtDecoderService().decodeToken(token);
-    console.log(decodedToken);
-    return decodedToken;
+    // const decodedToken = new JwtDecoderService().decodeToken(token);
+    // console.log(decodedToken);
+    // return decodedToken;
+    // console.log(token);
+    return this.http.get('https://api.escuelajs.co/api/v1/auth/profile');
+  }
 
-    // return this.http.get('https://dummyjson.com/auth/me');
+  public isLoggedIn() {
+    return this.isAuthenticatedSubject.value;
   }
 
 }

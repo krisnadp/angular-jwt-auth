@@ -32,14 +32,14 @@ export class AppComponent {
 
   ngOnInit() {
     this.authService.login({
-      username: 'kminchelle',
-      password: '0lelplR',
+      email: 'john@mail.com',
+      password: 'changeme',
     }).subscribe((loginResponse: any) => {
-      // this.authService.getCurrentAuthUser().subscribe((user: any) => {
-      //   console.log(user);
-      //   this.user = user;
-      // });
-      this.user = this.authService.getCurrentAuthUser();
+      this.authService.getCurrentAuthUser().subscribe((user: any) => {
+        console.log(user);
+        this.user = user;
+      });
+      // this.user = this.authService.getCurrentAuthUser();
     });
   }
 

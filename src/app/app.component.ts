@@ -35,10 +35,11 @@ export class AppComponent {
       username: 'kminchelle',
       password: '0lelplR',
     }).subscribe((loginResponse: any) => {
-      this.authService.getCurrentAuthUser().subscribe((user: any) => {
-        console.log(user);
-        this.user = user;
-      });
+      // this.authService.getCurrentAuthUser().subscribe((user: any) => {
+      //   console.log(user);
+      //   this.user = user;
+      // });
+      this.user = this.authService.getCurrentAuthUser();
     });
   }
 

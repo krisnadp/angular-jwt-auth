@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtDecoderService } from '../jwt/jwt-decoder.service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +30,7 @@ export class AuthService {
   // if using the backend services below code is used the dummy json
   // private doLoginUser(username: string, tokens: any) {
   private doLoginUser(username: string, token: any) {
+
     this.loggedUser = username;
     // if using the backend services below code is used the dummy json
     // this.storeJwtToken(tokens.jwt);
@@ -46,7 +49,13 @@ export class AuthService {
 
   getCurrentAuthUser() {
     let token = localStorage.getItem(this.JWT_TOKEN);
-    return this.http.get('https://dummyjson.com/auth/me');
+    
+    // get decoded value from token
+    const decodedToken = new JwtDecoderService().decodeToken(token);
+    console.log(decodedToken);
+    return decodedToken;
+
+    // return this.http.get('https://dummyjson.com/auth/me');
   }
 
 }

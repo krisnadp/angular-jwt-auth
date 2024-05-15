@@ -12,7 +12,7 @@ import { AuthService } from './core/services/auth/auth.service';
 })
 export class AppComponent {
   title = 'angular-jwt-auth';
-  user?: any;
+  // user?: any;
   // authService = Inject(AuthService);
 
   
@@ -28,19 +28,19 @@ export class AppComponent {
   //   })
   // }
 
-  constructor(private authService: AuthService) {}
+  // constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-    this.authService.login({
-      email: 'john@mail.com',
-      password: 'changeme',
-    }).subscribe((loginResponse: any) => {
-      this.authService.getCurrentAuthUser().subscribe((user: any) => {
-        console.log(user);
-        this.user = user;
-      });
-      // this.user = this.authService.getCurrentAuthUser();
-    });
-  }
+  // ngOnInit() {
+  //   this.authService.login({
+  //     email: 'john@mail.com',
+  //     password: 'changeme',
+  //   }).subscribe((loginResponse: any) => {
+  //     this.authService.getCurrentAuthUser().subscribe((user: any) => {
+  //       console.log(user);
+  //       this.user = user;
+  //     });
+  //     // this.user = this.authService.getCurrentAuthUser();
+  //   });
+  // }
 
 }

@@ -18,7 +18,8 @@ export class AuthService {
   constructor() { }
 
   login(user: {
-    email: string, password: string
+    email: string, password: string;
+    
   }): Observable<any>{
     return this.http.post('https://api.escuelajs.co/api/v1/auth/login', user)
     .pipe(

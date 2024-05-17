@@ -1,16 +1,14 @@
 import { Component, Inject } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { CommonModule } from '@angular/common';
-import { SidenavComponent } from '../../../../shared/components/sidenav/sidenav.component';
-import { NavbarComponent } from '../../../../shared/components/navbar/navbar.component';
+import { DashboardNavbarComponent } from '../../../../shared/components/dashboard-navbar/dashboard-navbar.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
     CommonModule,
-    SidenavComponent,
-    NavbarComponent,
+    DashboardNavbarComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

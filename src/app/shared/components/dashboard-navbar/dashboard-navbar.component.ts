@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { initFlowbite, Collapse  } from 'flowbite';
+import { initFlowbite } from 'flowbite';
+import { AuthService } from '../../../core/services/auth/auth.service';
 
 
 @Component({
@@ -18,6 +19,16 @@ export class DashboardNavbarComponent implements OnInit {
 
   ngOnInit(): void {
     initFlowbite();
+  }
+
+  user?: any;
+  // authService = Inject(AuthService);
+
+  constructor(private authService: AuthService) {
+    this.authService.getCurrentAuthUser().subscribe((user: any) => {
+      // console.log(user);
+      this.user = user;
+    });
   }
 
 }
